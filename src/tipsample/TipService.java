@@ -7,7 +7,7 @@ public class TipService {
         this.tipCalculator = tipCalculator;
     }
     
-    public double produceTip(QualityOfService qos){
+    public final double produceTip(QualityOfService qos){
         return tipCalculator.produceTip(qos);
     }
 }

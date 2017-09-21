@@ -11,7 +11,7 @@ public class BaggageServiceTipCalculator implements TipCalculator {
     }
     
     @Override
-    public double produceTip(QualityOfService qos){
+    public final double produceTip(QualityOfService qos){
         double percent = 0;
         switch(qos){
             case POOR:
