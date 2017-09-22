@@ -4,7 +4,7 @@ public class RestaurantTipCalculator implements TipCalculator {
     private double billAmt;
     
     public RestaurantTipCalculator(double billAmt){
-        this.billAmt = billAmt;
+        setBillAmt(billAmt);
     }
     
     public final double produceTip(QualityOfService qos){
@@ -23,6 +23,19 @@ public class RestaurantTipCalculator implements TipCalculator {
                 percent = 0.0;
         }
         
-        return billAmt * percent;
+        return getBillAmt() * percent;
     }
+
+    public double getBillAmt() {
+        return billAmt;
+    }
+
+    public void setBillAmt(double billAmt) {
+        if(billAmt <= 0){
+            throw new IllegalArgumentException("Error: billAmt cannot be less then zero.");
+        }
+        this.billAmt = billAmt;
+    }
+    
+    
 }

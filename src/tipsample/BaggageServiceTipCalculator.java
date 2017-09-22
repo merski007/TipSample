@@ -6,8 +6,8 @@ public class BaggageServiceTipCalculator implements TipCalculator {
     private int bagCount;
     
     public BaggageServiceTipCalculator(int bagCount, double baseTip){
-        this.bagCount = bagCount;
-        this.baseTip = baseTip;
+        setBagCount(bagCount);
+        setBaseTip(baseTip);
     }
     
     @Override
@@ -27,6 +27,30 @@ public class BaggageServiceTipCalculator implements TipCalculator {
                 percent = 0.0;
         }
         
-        return (bagCount * baseTip) * (1 + percent);
+        return (getBagCount() * getBaseTip()) * (1 + percent);
     }
+
+    public final double getBaseTip() {
+        return baseTip;
+    }
+
+    public final void setBaseTip(double baseTip) {
+        if(baseTip <= 0){
+            throw new IllegalArgumentException("Error: baseTip cannot be less then zero.");
+        }
+        this.baseTip = baseTip;
+    }
+
+    public final int getBagCount() {
+        return bagCount;
+    }
+
+    public final void setBagCount(int bagCount) {
+        if(bagCount <= 0){
+            throw new IllegalArgumentException("Error: bagCount cannot be less then zero.");
+        }
+        this.bagCount = bagCount;
+    }
+    
+    
 }
