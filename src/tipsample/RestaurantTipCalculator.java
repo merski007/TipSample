@@ -7,6 +7,7 @@ public class RestaurantTipCalculator implements TipCalculator {
         setBillAmt(billAmt);
     }
     
+    //update this method to accept a percentage vs using the enum values
     public final double produceTip(QualityOfService qos){
         double percent = 0;
         switch(qos){
